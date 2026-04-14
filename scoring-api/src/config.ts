@@ -11,7 +11,13 @@ const EnvSchema = z.object({
   CACHE_TTL_SECONDS: z.coerce.number().int().positive().default(604800), // 7 days
   LOCK_TTL_SECONDS: z.coerce.number().int().positive().default(10),
   LOCK_WAIT_MS: z.coerce.number().int().positive().default(3000),
-  USE_SCORING_STUB: z.coerce.boolean().default(false), // set true during early dev
+  // z.coerce.boolean() treats the string "false" as true (truthy string).
+  // Use explicit string comparison so USE_SCORING_STUB=false works correctly.
+  USE_SCORING_STUB: z
+    .string()
+    .optional()
+    .transform((v) => v === "true" || v === "1")
+    .default("false"),
   LOG_LEVEL: z.enum(["fatal", "error", "warn", "info", "debug", "trace"]).default("info"),
 });
 

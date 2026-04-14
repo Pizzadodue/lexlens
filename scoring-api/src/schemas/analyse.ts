@@ -6,8 +6,9 @@ import { Errors } from "../errors.js";
 export const SUPPORTED_LANGUAGES: readonly string[] = ["en"] as const;
 export const SUPPORTED_JURISDICTIONS: readonly string[] = ["US", "GB"] as const;
 
-// Minimum token count heuristic: 200 tokens ≈ 800 characters
-const MIN_TEXT_LENGTH = 800;
+// Minimum text length: ~50 tokens ≈ 200 characters — enough for ideology signal
+// Calibration dataset median is 449 chars; all 503 entries are in the 206–785 range.
+const MIN_TEXT_LENGTH = 200;
 // Max 8000 tokens ≈ 32000 characters (rough heuristic)
 const MAX_TEXT_LENGTH = 32000;
 

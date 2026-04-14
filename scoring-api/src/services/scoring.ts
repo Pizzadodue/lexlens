@@ -87,9 +87,16 @@ export class ScoringService {
       throw Errors.analysisUnavailable();
     }
 
+    // Strip markdown code fences if present — some model versions wrap JSON in ```json...```
+    // despite the prompt explicitly prohibiting it. This is a defensive normalisation.
+    const rawText = rawContent.text
+      .replace(/^```(?:json)?\s*/i, "")
+      .replace(/\s*```\s*$/, "")
+      .trim();
+
     let parsed: unknown;
     try {
-      parsed = JSON.parse(rawContent.text);
+      parsed = JSON.parse(rawText);
     } catch {
       console.error({ requestId, language, jurisdiction }, "Claude returned non-JSON response");
       throw Errors.analysisUnavailable();
