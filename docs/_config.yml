@@ -1,0 +1,4 @@
+# GitHub Pages configuration for LexLens
+# Serves static files from the /docs directory
+# Privacy policy: /privacy/
+theme: null
