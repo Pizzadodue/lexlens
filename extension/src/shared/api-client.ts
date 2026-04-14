@@ -10,7 +10,11 @@ import type {
   Jurisdiction,
 } from "./types.js";
 
-const API_BASE = "https://api.lexlens.com/v1";
+// Injected by esbuild define at build time.
+// `npm run build -- --dev` → http://localhost:3001/v1
+// `npm run build`          → https://api.lexlens.com/v1
+declare const __API_BASE__: string;
+const API_BASE = __API_BASE__;
 const REQUEST_TIMEOUT_MS = 5000;
 
 export type ApiCallResult =

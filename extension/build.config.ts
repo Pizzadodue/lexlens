@@ -17,6 +17,11 @@ const sharedOptions: esbuild.BuildOptions = {
   minify: !isDev,
   outdir,
   logLevel: "info",
+  define: {
+    __API_BASE__: isDev
+      ? JSON.stringify("http://localhost:3001/v1")
+      : JSON.stringify("https://api.lexlens.com/v1"),
+  },
 };
 
 async function build(): Promise<void> {

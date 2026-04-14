@@ -199,14 +199,21 @@ chrome.runtime.onMessage.addListener(
         );
 
         if (!result) {
-          sendResponse({ status: "error_unavailable" });
+          // sendResponse has already fired (status: "loading") so a second call would be
+          // silently dropped. Write an error sentinel to storage so the popup's
+          // chrome.storage.onChanged listener can detect the failure and exit the spinner.
+          void chrome.storage.local.set({
+            [`error:${state.cacheKeyStr}`]: { error: true, errorKey: "error_unavailable", cachedAt: Date.now() },
+          });
           return;
         }
 
         sendResponse({ status: "result", result });
       })().catch((err) => {
         console.error("[LexLens SW] Unexpected error:", err);
-        sendResponse({ status: "error_unavailable" });
+        void chrome.storage.local.set({
+          [`error:${state.cacheKeyStr}`]: { error: true, errorKey: "error_unavailable", cachedAt: Date.now() },
+        });
       });
 
       return true; // Keep message channel open for async response.

@@ -111,7 +111,7 @@ chrome.runtime.sendMessage({ type: MSG_GET_RESULT }, (response: SWResponse) => {
 
 /**
  * When the SW returns "loading", listen to chrome.storage.onChanged
- * for the cache key to be written, then re-render with the result.
+ * for the cache key (or error sentinel) to be written, then re-render.
  */
 function listenForStorageResult(): void {
   const listener = (
@@ -119,6 +119,23 @@ function listenForStorageResult(): void {
     area: string
   ) => {
     if (area !== "local") return;
+
+    // Error sentinel written by the SW when fetchAnalysis returns null.
+    const errorEntry = Object.values(changes).find(
+      (c) =>
+        c.newValue !== undefined &&
+        typeof c.newValue === "object" &&
+        c.newValue !== null &&
+        (c.newValue as { error?: boolean }).error === true
+    );
+    if (errorEntry) {
+      chrome.storage.onChanged.removeListener(listener);
+      const errorKey = (errorEntry.newValue as { errorKey?: string }).errorKey ?? "errorUnavailable";
+      renderError(errorKey);
+      return;
+    }
+
+    // Normal cached result written by the SW on success.
     const cacheEntry = Object.values(changes).find(
       (c) => c.newValue !== undefined && typeof c.newValue === "object" && "score" in c.newValue
     );
