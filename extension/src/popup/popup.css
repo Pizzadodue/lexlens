@@ -1,0 +1,134 @@
+/* src/popup/popup.css */
+/* WCAG 2.1 AA compliant — score bar uses text labels, not color alone. */
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-muted: #6b7280;
+  --color-accent: #2563eb;
+  --color-track: #e5e7eb;
+  --color-indicator: #2563eb;
+  --popup-width: 320px;
+  --popup-padding: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  background: var(--color-bg);
+  color: var(--color-text);
+  width: var(--popup-width);
+  min-height: 80px;
+  padding: var(--popup-padding);
+}
+
+header {
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.view {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ─── Score bar ─────────────────────────────────────────────────────────────── */
+
+.score-bar-container {
+  margin: 8px 0;
+}
+
+.score-bar-track {
+  position: relative;
+  height: 12px;
+  background: var(--color-track);
+  border-radius: 6px;
+  overflow: visible;
+}
+
+.score-indicator {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  background: var(--color-indicator);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.score-axis {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--color-muted);
+  margin-top: 4px;
+}
+
+/* ─── Meta text ─────────────────────────────────────────────────────────────── */
+
+.meta {
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+/* ─── Disclaimer — always visible ───────────────────────────────────────────── */
+
+.disclaimer {
+  font-size: 11px;
+  color: var(--color-muted);
+  border-top: 1px solid var(--color-track);
+  padding-top: 8px;
+  margin-top: 8px;
+}
+
+.disclaimer a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/* ─── Loading spinner ───────────────────────────────────────────────────────── */
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--color-track);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 8px auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Accessibility ─────────────────────────────────────────────────────────── */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+.section-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+}

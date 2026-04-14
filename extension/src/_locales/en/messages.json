@@ -1,0 +1,76 @@
+{
+  "extensionName": {
+    "message": "LexLens",
+    "description": "Name of the extension."
+  },
+  "extensionDescription": {
+    "message": "Understand legislation clearly, in any language, without political bias.",
+    "description": "Short description shown in the Chrome Web Store."
+  },
+
+  "popupIdle": {
+    "message": "Navigate to a legislation page to analyse it.",
+    "description": "Shown when the current tab is not a recognised legislation page."
+  },
+  "popupLoading": {
+    "message": "Analysing\u2026",
+    "description": "Shown while the scoring API call is in progress."
+  },
+
+  "resultScoreLabel": {
+    "message": "Political positioning",
+    "description": "Label above the score bar."
+  },
+  "resultScoreLeft": {
+    "message": "Left",
+    "description": "Left end of the score bar axis label."
+  },
+  "resultScoreCenter": {
+    "message": "Centre",
+    "description": "Center of the score bar axis label."
+  },
+  "resultScoreRight": {
+    "message": "Right",
+    "description": "Right end of the score bar axis label."
+  },
+  "resultConfidenceLabel": {
+    "message": "Confidence: $1%",
+    "description": "Confidence percentage label. $1 is substituted with the integer value.",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "72"
+      }
+    }
+  },
+  "resultUncertaintyLabel": {
+    "message": "Uncertainty range: $1 to $2",
+    "description": "Uncertainty range label.",
+    "placeholders": {
+      "1": { "content": "$1", "example": "-0.45" },
+      "2": { "content": "$2", "example": "-0.15" }
+    }
+  },
+
+  "methodologyDisclaimerPrefix": {
+    "message": "Scoring methodology:",
+    "description": "Prefix before the methodology link."
+  },
+  "methodologyLinkText": {
+    "message": "View methodology",
+    "description": "Clickable text for the methodology disclaimer link."
+  },
+
+  "errorNetwork": {
+    "message": "Analysis temporarily unavailable. Try again.",
+    "description": "Shown on network timeout or connection failure."
+  },
+  "errorUnsupported": {
+    "message": "This page is not supported.",
+    "description": "Shown when the jurisdiction or content type is not supported."
+  },
+  "errorUnavailable": {
+    "message": "Analysis temporarily unavailable. Try again.",
+    "description": "Shown on API 5xx or unexpected failure."
+  }
+}

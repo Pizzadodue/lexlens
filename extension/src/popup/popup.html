@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LexLens</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1 id="extension-title">LexLens</h1>
+    </header>
+
+    <main id="app">
+      <!-- State: idle -->
+      <section id="view-idle" class="view" role="status" aria-live="polite" hidden>
+        <p id="idle-message"></p>
+      </section>
+
+      <!-- State: loading -->
+      <section id="view-loading" class="view" role="status" aria-live="polite" hidden>
+        <div class="spinner" aria-label="" role="img"></div>
+        <p id="loading-message"></p>
+      </section>
+
+      <!-- State: result -->
+      <section id="view-result" class="view" hidden>
+        <h2 id="score-label" class="section-label"></h2>
+        <div class="score-bar-container" role="img" aria-labelledby="score-description">
+          <div class="score-bar-track">
+            <div id="score-indicator" class="score-indicator"></div>
+          </div>
+          <div class="score-axis" aria-hidden="true">
+            <span id="axis-left"></span>
+            <span id="axis-center"></span>
+            <span id="axis-right"></span>
+          </div>
+        </div>
+        <p id="score-description" class="sr-only"></p>
+        <p id="confidence-label" class="meta"></p>
+        <p id="uncertainty-label" class="meta"></p>
+        <footer class="disclaimer">
+          <span id="disclaimer-prefix"></span>
+          <a id="methodology-link" href="#" target="_blank" rel="noopener noreferrer"></a>
+        </footer>
+      </section>
+
+      <!-- State: error -->
+      <section id="view-error" class="view" role="alert" hidden>
+        <p id="error-message"></p>
+      </section>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

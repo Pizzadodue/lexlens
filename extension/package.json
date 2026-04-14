@@ -1,0 +1,21 @@
+{
+  "name": "lexlens-extension",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsx build.config.ts",
+    "build:dev": "tsx build.config.ts --dev",
+    "watch": "tsx build.config.ts --dev --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "@types/node": "^25.6.0",
+    "esbuild": "^0.21.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.0.0"
+  }
+}
