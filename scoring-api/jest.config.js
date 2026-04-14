@@ -18,5 +18,7 @@ export default {
       },
     ],
   },
+  // Must run before any test module is loaded so config.ts sees the vars
+  setupFiles: ["./test/setup-env.ts"],
   testMatch: ["**/test/**/*.test.ts"],
 };

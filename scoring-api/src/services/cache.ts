@@ -88,8 +88,6 @@ export class CacheService {
   }
 }
 
-let _cacheService: CacheService | null = null;
-
 export function createRedisClient(): Redis {
   return new Redis(config.REDIS_URL, {
     maxRetriesPerRequest: 3,
@@ -98,8 +96,5 @@ export function createRedisClient(): Redis {
 }
 
 export function getCacheService(redis: Redis): CacheService {
-  if (!_cacheService) {
-    _cacheService = new CacheService(redis);
-  }
-  return _cacheService;
+  return new CacheService(redis);
 }
