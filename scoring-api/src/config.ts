@@ -1,0 +1,29 @@
+// src/config.ts
+import { z } from "zod";
+
+const EnvSchema = z.object({
+  NODE_ENV: z.enum(["development", "production", "test"]).default("development"),
+  PORT: z.coerce.number().int().positive().default(3000),
+  ANTHROPIC_API_KEY: z.string().min(1),
+  REDIS_URL: z.string().url(),
+  METHODOLOGY_URL: z.string().url().default("https://lexlens.com/methodology"),
+  CLAUDE_MODEL: z.string().default("claude-haiku-4-5-20251001"),
+  CACHE_TTL_SECONDS: z.coerce.number().int().positive().default(604800), // 7 days
+  LOCK_TTL_SECONDS: z.coerce.number().int().positive().default(10),
+  LOCK_WAIT_MS: z.coerce.number().int().positive().default(3000),
+  USE_SCORING_STUB: z.coerce.boolean().default(false), // set true during early dev
+  LOG_LEVEL: z.enum(["fatal", "error", "warn", "info", "debug", "trace"]).default("info"),
+});
+
+export type Config = z.infer<typeof EnvSchema>;
+
+export function loadConfig(): Config {
+  const result = EnvSchema.safeParse(process.env);
+  if (!result.success) {
+    console.error("Invalid environment configuration:", result.error.flatten());
+    process.exit(1);
+  }
+  return result.data;
+}
+
+export const config = loadConfig();
