@@ -7,7 +7,7 @@ const EnvSchema = z.object({
   ANTHROPIC_API_KEY: z.string().min(1),
   REDIS_URL: z.string().url(),
   METHODOLOGY_URL: z.string().url().default("https://lexlens.com/methodology"),
-  CLAUDE_MODEL: z.string().default("claude-haiku-4-5-20251001"),
+  CLAUDE_MODEL: z.string().default("claude-sonnet-4-6"),
   CACHE_TTL_SECONDS: z.coerce.number().int().positive().default(604800), // 7 days
   LOCK_TTL_SECONDS: z.coerce.number().int().positive().default(10),
   LOCK_WAIT_MS: z.coerce.number().int().positive().default(3000),

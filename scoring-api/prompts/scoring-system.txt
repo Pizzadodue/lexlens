@@ -63,10 +63,12 @@ Negative scores are left/liberal; positive scores are right/conservative.
                                   adjacent bands have 133–150). Apply wider
                                   uncertaintyRange (±0.15 minimum) and cap confidence
                                   at 80 for scores in this range.
-                                  Calibration anchors: Balanced Budget Act 1997 (~+0.10),
-                                  Deficit Reduction Act 2005 (~+0.15),
-                                  UK Conservative 2001 manifesto (~+0.15),
-                                  UK Conservative 2005 manifesto (~+0.18).
+                                  Calibration anchors: No Child Left Behind Act 2001
+                                  (+0.18; testing accountability + school choice),
+                                  China PNTR / trade liberalisation legislation (+0.17),
+                                  Trade Promotion Authority 2015 (+0.14),
+                                  Anti-Drug Abuse Act 1986 (+0.12),
+                                  AUMF 2001 (+0.12).
 
   +0.26 to +0.40  Right — significant tax cuts, deregulation, welfare conditionality,
                            immigration restriction, free-market priority, national
@@ -74,6 +76,8 @@ Negative scores are left/liberal; positive scores are right/conservative.
                            Calibration anchors: UK Conservative 2019
                            (+0.29 MP-RILE / +0.42 CHES — both defensible;
                            7-wave CHES range is +0.36–+0.44 across 1999–2019),
+                           UK Conservative 2001 (+0.26 MP-RILE),
+                           UK Conservative 2005 (+0.25 MP-RILE),
                            Republican platforms 2016–2020 (+0.36 to +0.37),
                            Smoot-Hawley Tariff 1930 (+0.25), Bush tax cuts 2001
                            (+0.38), Taft-Hartley Act 1947 (+0.39).
