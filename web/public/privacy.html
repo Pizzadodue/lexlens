@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy — fact.ai</title>
+    <style>
+      :root {
+        --color-bg: #ffffff;
+        --color-text: #1a1a1a;
+        --color-muted: #6b7280;
+        --color-accent: #2563eb;
+        --max-width: 680px;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--color-text);
+        background: var(--color-bg);
+        padding: 2rem 1rem;
+      }
+      main {
+        max-width: var(--max-width);
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--color-accent);
+      }
+      h2 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+      p, ul {
+        margin-bottom: 1rem;
+      }
+      ul {
+        padding-left: 1.5rem;
+      }
+      li {
+        margin-bottom: 0.25rem;
+      }
+      a {
+        color: var(--color-accent);
+      }
+      .updated {
+        font-size: 0.9rem;
+        color: var(--color-muted);
+        margin-bottom: 1.5rem;
+      }
+      .contact {
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid #e5e7eb;
+        font-size: 0.9rem;
+        color: var(--color-muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: 20 April 2026</p>
+
+      <p>fact.ai ("we", "us", "our") operates the fact.ai browser extension. This privacy policy explains what data we collect, how we use it, and your rights.</p>
+
+      <h2>What data we collect</h2>
+      <ul>
+        <li><strong>Legislation text.</strong> When you visit a supported legislation page, the extension extracts the bill or act text from the page and sends it to our scoring API (<code>api.fact.ai</code>) for analysis.</li>
+        <li><strong>Page URL.</strong> The URL of the legislation page is sent alongside the text for source attribution.</li>
+        <li><strong>Cached results.</strong> Analysis results are stored locally in your browser (<code>chrome.storage.local</code>) to avoid repeated API calls for the same content.</li>
+      </ul>
+
+      <h2>What data we do not collect</h2>
+      <ul>
+        <li>We do not collect personal information, browsing history, or any data from non-legislation pages.</li>
+        <li>We do not use cookies, tracking pixels, or analytics on the extension.</li>
+        <li>We do not sell or share data with third parties.</li>
+      </ul>
+
+      <h2>How we use your data</h2>
+      <p>Legislation text and URLs are processed solely to generate political-spectrum scores. We may cache results server-side (keyed by content hash, not URL) to improve response times for identical content.</p>
+
+      <h2>Artificial Intelligence &amp; Automated Decision-Making</h2>
+      <p>fact.ai uses an AI language model to generate political-spectrum scores. All scores, confidence levels, and uncertainty ranges are produced by AI without human review of individual results. The AI model is calibrated against peer-reviewed political-science datasets.</p>
+      <p>Under the EU AI Act (Article 50), you have the right to know when you are interacting with an AI system. For full details about how our AI works, its methodology, confidence scoring, limitations, and your rights, see our <a href="/transparency">Transparency Disclosure</a>.</p>
+      <p>No automated decisions made by fact.ai have legal or similarly significant effects on you. Scores are informational only and should not be treated as definitive assessments.</p>
+
+      <h2>Data retention</h2>
+      <p>Server-side cached results are retained for up to 30 days. Local browser storage persists until you clear it or uninstall the extension.</p>
+
+      <h2>Your rights</h2>
+      <p>You may uninstall the extension at any time to stop all data processing. To request deletion of server-side cached data or for any privacy questions, contact: <a href="mailto:legal@fact.ai">legal@fact.ai</a></p>
+
+      <div class="contact">
+        <strong>Provider.</strong> fact.ai Ltd.<br />
+        Contact: <a href="mailto:legal@fact.ai">legal@fact.ai</a>
+      </div>
+    </main>
+  </body>
+</html>
